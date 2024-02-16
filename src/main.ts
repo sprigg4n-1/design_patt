@@ -1,5 +1,7 @@
-import { FactoryExm, SingletonExamp } from './patterns/patterns';
+import { FactoryExm, SingletonExamp, AbsFactoryExm } from './patterns/patterns';
 
-// SingletonExamp();
+SingletonExamp();
 
 FactoryExm();
+
+AbsFactoryExm();

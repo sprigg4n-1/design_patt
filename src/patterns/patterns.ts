@@ -1,4 +1,14 @@
-import { EMenu } from '../../types';
+import { CompanyFactory } from './creational/abs-factory/CompanyFactory';
+import {
+  ECompany,
+  EGigabyteMonitors,
+  EGigabyteMotherboard,
+  EMSIMonitors,
+  EMSIMotherboard,
+  EMenu,
+  IMonitor,
+  IMotherboard,
+} from '../../types';
 import Order from './creational/factory/Order';
 import OrderFactory from './creational/factory/OrderFactory';
 import HotelKey from './creational/singleton/HotelKey';
@@ -24,7 +34,6 @@ export const SingletonExamp = () => {
 };
 
 // factory
-
 export const FactoryExm = () => {
   console.log('-------- start factory --------');
   const orderFact = new OrderFactory();
@@ -37,11 +46,7 @@ export const FactoryExm = () => {
 
   const list: Order[] = [];
 
-  list.push(break1);
-  list.push(dinner1);
-  list.push(lunch1);
-  list.push(drinks1);
-  list.push(break4);
+  list.push(break1, dinner1, lunch1, drinks1, break4);
 
   list.forEach((order, i) => {
     console.log(`======== order ${i + 1} =======`);
@@ -50,4 +55,47 @@ export const FactoryExm = () => {
     console.log(`========================`);
   });
   console.log('--------- end factory ---------');
+};
+
+// abs-factory
+export const AbsFactoryExm = () => {
+  console.log('-------- start abs-factory --------');
+  const compFactory = new CompanyFactory();
+
+  const msiFactory = compFactory.createFactory(ECompany.MSI);
+  const gigabyteFactory = compFactory.createFactory(ECompany.Gigabyte);
+
+  const mon1 = msiFactory.createMonitor(EMSIMonitors.MAG271QPXDE);
+  const mon2 = msiFactory.createMonitor(EMSIMonitors.MAG321UPXDE);
+  const mon3 = gigabyteFactory.createMonitor(EGigabyteMonitors.G34WQC);
+  const mon4 = gigabyteFactory.createMonitor(EGigabyteMonitors.S55U);
+
+  const moth1 = msiFactory.createMotherboard(EMSIMotherboard.MEGZ690GODLIKE);
+  const moth2 = msiFactory.createMotherboard(EMSIMotherboard.MEGZ790GODLIKEMAX);
+  const moth3 = gigabyteFactory.createMotherboard(
+    EGigabyteMotherboard.B650MS2H
+  );
+  const moth4 = gigabyteFactory.createMotherboard(
+    EGigabyteMotherboard.H610MD3HDDR4
+  );
+
+  const listMon: IMonitor[] = [];
+  const listMoth: IMotherboard[] = [];
+
+  listMon.push(mon1, mon2, mon3, mon4);
+  listMoth.push(moth1, moth2, moth3, moth4);
+
+  console.log('===== monitors =====');
+  listMon.forEach((mon, i) => {
+    console.log(`=== ${i + 1} ===`);
+    mon.getStats();
+  });
+
+  console.log('===== motherboards =====');
+  listMoth.forEach((moth, i) => {
+    console.log(`=== ${i + 1} ===`);
+    moth.getStats();
+  });
+
+  console.log('--------- end abs-factory ---------');
 };
