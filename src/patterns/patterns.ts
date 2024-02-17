@@ -1,3 +1,4 @@
+import { Book } from './prototype/Book';
 import { CompanyFactory } from './creational/abs-factory/CompanyFactory';
 import {
   ECompany,
@@ -112,8 +113,37 @@ export const BuilderExm = () => {
 
   shop.buildComputer(PCConfiguration[0], compBuilder);
 
-  const comp1 = compBuilder.getComputer();
+  const comp1 = compBuilder.getProduct();
 
   comp1.showStats();
   console.log('--------- end builder ---------');
+};
+
+// prototype
+export const PrototypeExm = () => {
+  console.log('-------- start prototype --------');
+
+  const org = new Book('JS', 'IDC', 46);
+
+  const clone = org.doCopy();
+
+  if (org.authtor === clone.authtor) {
+    console.log(
+      'Primitive field values have been carried over to a clone. Yay!'
+    );
+  } else {
+    console.log('Primitive field values have not been copied. Booo!');
+  }
+
+  if (org !== clone) console.log('Objects are not the same! Yeah!');
+
+  if (
+    org.authtor === clone.authtor &&
+    org.price === clone.price &&
+    org.title === clone.title
+  ) {
+    console.log('Objects are identical! Yeah!');
+  }
+
+  console.log('--------- end prototype ---------');
 };

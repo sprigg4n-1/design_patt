@@ -84,6 +84,6 @@ export interface IComputerStats {
 }
 
 // Interfaces and enums for prototype
-export interface IPrototype {
-  doCopy(): IPrototype;
+export interface IPrototype<T> {
+  doCopy(): T;
 }
