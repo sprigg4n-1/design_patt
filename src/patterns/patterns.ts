@@ -12,6 +12,10 @@ import {
 import Order from './creational/factory/Order';
 import OrderFactory from './creational/factory/OrderFactory';
 import HotelKey from './creational/singleton/HotelKey';
+import { ComputerShop } from './creational/builder/ComputerShop';
+import { ComputerBuilder } from './creational/builder/ComputerBuilder';
+
+import { PCConfiguration } from '../../constants/index';
 
 // singleton
 export const SingletonExamp = () => {
@@ -98,4 +102,18 @@ export const AbsFactoryExm = () => {
   });
 
   console.log('--------- end abs-factory ---------');
+};
+
+// builder
+export const BuilderExm = () => {
+  console.log('-------- start builder --------');
+  const compBuilder = new ComputerBuilder();
+  const shop = new ComputerShop();
+
+  shop.buildComputer(PCConfiguration[0], compBuilder);
+
+  const comp1 = compBuilder.getComputer();
+
+  comp1.showStats();
+  console.log('--------- end builder ---------');
 };

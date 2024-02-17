@@ -1,4 +1,4 @@
-// Interfaces for factory
+// Interfaces and enums for factory
 export enum EMenu {
   Breakfast = 'Breakfast',
   Lunch = 'Lunch',
@@ -10,7 +10,7 @@ export interface IMenuNames {
   dishes: string[];
 }
 
-// Interfaces for abs-factory
+// Interfaces and enums for abs-factory
 export enum ECompany {
   MSI = 'MSI',
   Gigabyte = 'Gigabyte',
@@ -34,6 +34,13 @@ export enum EGigabyteMotherboard {
 export enum EGigabyteMonitors {
   S55U = 'S55U',
   G34WQC = 'G34WQC',
+}
+
+export interface IDeviceFactory {
+  createMonitor(monitor: EMSIMonitors | EGigabyteMonitors): IMonitor;
+  createMotherboard(
+    motherboard: EGigabyteMotherboard | EMSIMotherboard
+  ): IMotherboard;
 }
 
 export interface IMonitorStats {
@@ -61,13 +68,22 @@ export interface IMotherboard {
   getStats(): void;
 }
 
-export interface IDeviceFactory {
-  createMonitor(monitor: EMSIMonitors | EGigabyteMonitors): IMonitor;
-  createMotherboard(
-    motherboard: EGigabyteMotherboard | EMSIMotherboard
-  ): IMotherboard;
-}
-
 export interface ICompanyFactory {
   createFactory(type: ECompany): IDeviceFactory;
+}
+
+// Interfaces and enums for builder
+export interface IComputerStats {
+  cpu: string;
+  gpu: string;
+  motherboard: string;
+  ram: string;
+  capacity: string;
+  power: string;
+  additional: string[];
+}
+
+// Interfaces and enums for prototype
+export interface IPrototype {
+  doCopy(): IPrototype;
 }

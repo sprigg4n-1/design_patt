@@ -1,26 +1,26 @@
 export default class HotelKey {
-  private static instance: HotelKey;
-  private owner: string;
+  private static _instance: HotelKey;
+  private _owner: string;
 
   private constructor(owner: string) {
-    this.owner = owner;
+    this._owner = owner;
   }
 
   public static getInstance(owner: string): HotelKey {
-    if (!HotelKey.instance) {
-      this.instance = new HotelKey(owner);
+    if (!HotelKey._instance) {
+      this._instance = new HotelKey(owner);
     }
 
-    return HotelKey.instance;
+    return HotelKey._instance;
 
-    // return HotelKey.instance || new HotelKey(owner);
+    // return HotelKey._instance || new HotelKey(owner);
   }
 
   public openHotel() {
-    console.log(`${this.owner} opened hotel`);
+    console.log(`${this._owner} opened hotel`);
   }
 
   public closeHotel() {
-    console.log(`${this.owner} closed hotel`);
+    console.log(`${this._owner} closed hotel`);
   }
 }
