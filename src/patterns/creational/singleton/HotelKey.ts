@@ -12,8 +12,6 @@ export default class HotelKey {
     }
 
     return HotelKey._instance;
-
-    // return HotelKey._instance || new HotelKey(owner);
   }
 
   public openHotel() {

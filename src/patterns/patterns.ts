@@ -13,10 +13,10 @@ import {
 import Order from './creational/factory/Order';
 import OrderFactory from './creational/factory/OrderFactory';
 import HotelKey from './creational/singleton/HotelKey';
-import { ComputerShop } from './creational/builder/ComputerShop';
 import { ComputerBuilder } from './creational/builder/ComputerBuilder';
 
 import { PCConfiguration } from '../../constants/index';
+import { Computer } from './creational/builder/Computer';
 
 // singleton
 export const SingletonExamp = () => {
@@ -108,12 +108,18 @@ export const AbsFactoryExm = () => {
 // builder
 export const BuilderExm = () => {
   console.log('-------- start builder --------');
-  const compBuilder = new ComputerBuilder();
-  const shop = new ComputerShop();
 
-  shop.buildComputer(PCConfiguration[0], compBuilder);
+  const builder1 = new ComputerBuilder();
 
-  const comp1 = compBuilder.getProduct();
+  builder1.capacity1 = PCConfiguration[0].capacity1;
+  // builder1.capacity2 = PCConfiguration[0].capacity2;
+  builder1.ram = PCConfiguration[0].ram;
+  builder1.power = PCConfiguration[0].power;
+  builder1.motherboard = PCConfiguration[0].motherboard;
+  builder1.cpu = PCConfiguration[0].cpu;
+  // builder1.externalGpu = PCConfiguration[0].externalGpu;
+
+  const comp1 = builder1.build();
 
   comp1.showStats();
   console.log('--------- end builder ---------');

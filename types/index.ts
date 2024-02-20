@@ -72,17 +72,6 @@ export interface ICompanyFactory {
   createFactory(type: ECompany): IDeviceFactory;
 }
 
-// Interfaces and enums for builder
-export interface IComputerStats {
-  cpu: string;
-  gpu: string;
-  motherboard: string;
-  ram: string;
-  capacity: string;
-  power: string;
-  additional: string[];
-}
-
 // Interfaces and enums for prototype
 export interface IPrototype<T> {
   doCopy(): T;

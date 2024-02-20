@@ -1,60 +1,52 @@
+import { ComputerBuilder } from './ComputerBuilder';
+
 export class Computer {
   private _cpu: string;
 
-  private _gpu: string;
-
-  private _motherboard: string;
-
   private _ram: string;
 
-  private _capacity: string;
+  private _capacity1: string;
 
   private _power: string;
 
-  private _additional: string[];
+  private _motherboard: string;
+
+  private _externalGpu: string | undefined;
+
+  private _capacity2: string | undefined;
+
+  private _externalWifiCard: string | undefined;
+
+  private _externalSoundCard: string | undefined;
+
+  private _externalRGBController: string | undefined;
+
+  constructor(builder: ComputerBuilder) {
+    this._cpu = builder.cpu;
+    this._ram = builder.ram;
+    this._capacity1 = builder.capacity1;
+    this._power = builder.power;
+    this._motherboard = builder.motherboard;
+    this._externalGpu = builder.externalGpu;
+    this._capacity2 = builder.capacity2;
+    this._externalWifiCard = builder.externalWifiCard;
+    this._externalSoundCard = builder.externalSoundCard;
+    this._externalRGBController = builder.externalRGBController;
+  }
 
   public showStats(): void {
-    console.log(`CPU:         ${this._cpu}`);
-    console.log(`GPU:         ${this._gpu}`);
-    console.log(`Motherboard: ${this._motherboard}`);
-    console.log(`RAM:         ${this._ram}`);
-    console.log(`Capacity:    ${this._capacity}`);
-    console.log(`Power:       ${this._power}`);
-    this.showAdditional(this._additional.length !== 0);
-  }
-
-  private showAdditional(show: boolean): void {
-    show && console.log('Adiitional:');
-    this._additional.forEach((el, i) => {
-      console.log(`\t${i + 1}. ${el}`);
-    });
-  }
-
-  public set cpu(value: string) {
-    this._cpu = value;
-  }
-
-  public set gpu(value: string) {
-    this._gpu = value;
-  }
-
-  public set motherboard(value: string) {
-    this._motherboard = value;
-  }
-
-  public set ram(value: string) {
-    this._ram = value;
-  }
-
-  public set capacity(value: string) {
-    this._capacity = value;
-  }
-
-  public set power(value: string) {
-    this._power = value;
-  }
-
-  public set additional(value: string[]) {
-    this._additional = value;
+    console.log(`CPU:            ${this._cpu}`);
+    console.log(`Motherboard:    ${this._motherboard}`);
+    console.log(`RAM:            ${this._ram}`);
+    console.log(`Capacity1:      ${this._capacity1}`);
+    console.log(`Power:          ${this._power}`);
+    this._capacity2 && console.log(`Capacity2:      ${this._capacity2}`);
+    this._externalGpu && console.log(`External Gpu:   ${this._externalGpu}`);
+    this._externalWifiCard &&
+      console.log(`Wifu card:      ${this._externalWifiCard}`);
+    this._externalSoundCard &&
+      console.log(`Sound card:     ${this._externalSoundCard}`);
+    this._externalRGBController &&
+      console.log(`RGB controller: ${this._externalRGBController}`);
   }
 }
