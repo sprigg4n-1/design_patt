@@ -1,4 +1,5 @@
-import { Book } from './prototype/Book';
+import { VideoAdapter } from './structural/adapter/VideoAdapter';
+import { Book } from './creational/prototype/Book';
 import { CompanyFactory } from './creational/abs-factory/CompanyFactory';
 import {
   ECompany,
@@ -17,6 +18,8 @@ import { ComputerBuilder } from './creational/builder/ComputerBuilder';
 
 import { PCConfiguration } from '../../constants/index';
 import { Computer } from './creational/builder/Computer';
+import { DisplayPort } from './structural/adapter/DisplayPort';
+import { HDMI } from './structural/adapter/HDMI';
 
 // singleton
 export const SingletonExamp = () => {
@@ -152,4 +155,21 @@ export const PrototypeExm = () => {
   }
 
   console.log('--------- end prototype ---------');
+};
+
+// adapter
+const clientCode = (dp: DisplayPort) => {
+  dp.connectDisP();
+};
+
+export const AdapterExm = () => {
+  console.log('-------- start adpter --------');
+  const dp = new DisplayPort();
+  clientCode(dp);
+
+  const hd = new HDMI();
+
+  const adapter = new VideoAdapter(hd);
+  clientCode(adapter);
+  console.log('--------- end adapter ---------');
 };

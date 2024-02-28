@@ -1,4 +1,4 @@
-import { IPrototype } from '../../../types';
+import { IPrototype } from '../../../../types';
 
 export class Book implements IPrototype<Book> {
   private _title: string;

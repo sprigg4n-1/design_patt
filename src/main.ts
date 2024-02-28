@@ -4,14 +4,17 @@ import {
   AbsFactoryExm,
   BuilderExm,
   PrototypeExm,
+  AdapterExm,
 } from './patterns/patterns';
 
-SingletonExamp();
+// SingletonExamp();
 
-FactoryExm();
+// FactoryExm();
 
-AbsFactoryExm();
+// AbsFactoryExm();
 
-BuilderExm();
+// BuilderExm();
 
-PrototypeExm();
+// PrototypeExm();
+
+AdapterExm();
