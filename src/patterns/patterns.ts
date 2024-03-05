@@ -1,3 +1,7 @@
+import { SyrupDec } from './structural/decorator_p/SyrupDec';
+import { SugarDec } from './structural/decorator_p/SugarDec';
+import { MilkDec } from './structural/decorator_p/MilkDec';
+import { Coffee } from './structural/decorator_p/Coffee';
 import { MySQLDatabase } from './structural/bridge/MySQLDatabase';
 import { MongoDBDatabase } from './structural/bridge/MongoDBDatabase';
 import { ProxyWebServer } from './structural/proxy/ProxyWebServer';
@@ -279,4 +283,19 @@ export const BridgeExm = () => {
   mySQLMan.getProduct(1);
 
   console.log('--------- end bridge ---------');
+};
+
+// decorator
+export const DecoratorExm = () => {
+  console.log('-------- start decorator --------');
+  const coffee = new Coffee();
+  console.log(coffee.printInfo());
+
+  const coffeeMilk = new MilkDec(new SugarDec(coffee));
+  console.log(coffeeMilk.printInfo());
+
+  const coffeeSyrup = new SyrupDec(coffee);
+  console.log(coffeeSyrup.printInfo());
+
+  console.log('--------- end decorator ---------');
 };

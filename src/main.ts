@@ -10,6 +10,7 @@ import {
   FlyweightExm,
   FacadeExm,
   BridgeExm,
+  DecoratorExm,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -34,4 +35,6 @@ import {
 
 // FacadeExm();
 
-BridgeExm();
+// BridgeExm();
+
+DecoratorExm();

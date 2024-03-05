@@ -106,3 +106,8 @@ export interface IDatabase {
   disconnect(): void;
   query(query: string): void;
 }
+
+// Interfaces and enums for decorator
+export interface IBaseTrink {
+  printInfo(): string;
+}
