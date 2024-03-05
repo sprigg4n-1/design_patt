@@ -12,6 +12,7 @@ import {
   EMenu,
   IMonitor,
   IMotherboard,
+  IProduct,
 } from '../../types';
 import Order from './creational/factory/Order';
 import OrderFactory from './creational/factory/OrderFactory';
@@ -24,6 +25,7 @@ import { HDMI } from './structural/adapter/HDMI';
 import { Stock } from './structural/composite/comp/Stock';
 import { FinancialPortfolio } from './structural/composite/FinancialPortfolio';
 import { LaptopFactory } from './structural/flyweight/LaptopFactory';
+import { ProductFacade } from './structural/facade/ProductFacade';
 
 // singleton
 export const SingletonExamp = () => {
@@ -217,7 +219,7 @@ export const ProxyExm = () => {
   console.log('--------- end proxy ---------');
 };
 
-// proxy
+// flyweight
 export const FlyweightExm = () => {
   console.log('-------- start flyweight --------');
   const lf = new LaptopFactory();
@@ -233,4 +235,27 @@ export const FlyweightExm = () => {
   lf.showLaptops();
 
   console.log('--------- end flyweight ---------');
+};
+
+// facade
+export const FacadeExm = () => {
+  console.log('-------- start facade --------');
+  const facade = new ProductFacade();
+
+  facade.addProduct({ id: 1, name: 'New', price: 22 });
+  facade.addProduct({ id: 2, name: 'New2', price: 223 });
+
+  console.log(`---- after add ----`);
+  facade.getProducts().forEach((item) => {
+    console.log(item);
+  });
+
+  facade.deleteProduct(2);
+
+  console.log(`---- after delete ----`);
+  facade.getProducts().forEach((item) => {
+    console.log(item);
+  });
+
+  console.log('--------- end facade ---------');
 };

@@ -88,7 +88,14 @@ export interface IWebPage {
   getPage(url: string): string;
 }
 
-// Interfaces and enums for flzweight
+// Interfaces and enums for flyweight
 export interface ILaptopComp {
   use(): void;
+}
+
+// Interfaces and enums for facade
+export interface IProduct {
+  id: number;
+  name: string;
+  price: number;
 }

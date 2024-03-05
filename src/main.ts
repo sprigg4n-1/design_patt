@@ -8,6 +8,7 @@ import {
   CompositeExm,
   ProxyExm,
   FlyweightExm,
+  FacadeExm,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -28,4 +29,6 @@ import {
 
 // ProxyExm();
 
-FlyweightExm();
+// FlyweightExm();
+
+FacadeExm();
