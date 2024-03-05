@@ -1,3 +1,5 @@
+import { MySQLDatabase } from './structural/bridge/MySQLDatabase';
+import { MongoDBDatabase } from './structural/bridge/MongoDBDatabase';
 import { ProxyWebServer } from './structural/proxy/ProxyWebServer';
 import { Cash } from './structural/composite/comp/Cash';
 import { VideoAdapter } from './structural/adapter/VideoAdapter';
@@ -26,6 +28,8 @@ import { Stock } from './structural/composite/comp/Stock';
 import { FinancialPortfolio } from './structural/composite/FinancialPortfolio';
 import { LaptopFactory } from './structural/flyweight/LaptopFactory';
 import { ProductFacade } from './structural/facade/ProductFacade';
+import { MongoDBManager } from './structural/bridge/MongoDBManager';
+import { MySQLManager } from './structural/bridge/MySQLManager';
 
 // singleton
 export const SingletonExamp = () => {
@@ -258,4 +262,21 @@ export const FacadeExm = () => {
   });
 
   console.log('--------- end facade ---------');
+};
+
+// bridge
+export const BridgeExm = () => {
+  console.log('-------- start bridge --------');
+  const mongoDB = new MongoDBDatabase();
+  const mySQLdb = new MySQLDatabase();
+
+  console.log(`---------- mongo`);
+  const mongoMan = new MongoDBManager(mongoDB);
+  mongoMan.addProduct({ id: 1, name: 'New', price: 12 });
+
+  console.log(`---------- sql`);
+  const mySQLMan = new MySQLManager(mySQLdb);
+  mySQLMan.getProduct(1);
+
+  console.log('--------- end bridge ---------');
 };

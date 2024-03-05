@@ -99,3 +99,10 @@ export interface IProduct {
   name: string;
   price: number;
 }
+
+// Interfaces and enums for bridge
+export interface IDatabase {
+  connect(): void;
+  disconnect(): void;
+  query(query: string): void;
+}
