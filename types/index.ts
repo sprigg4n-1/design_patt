@@ -82,3 +82,8 @@ export interface IFinancialComponent {
   calculateValue(): number;
   getInfo(): string;
 }
+
+// Interfaces and enums for proxy
+export interface IWebPage {
+  getPage(url: string): string;
+}

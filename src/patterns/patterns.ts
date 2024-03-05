@@ -1,3 +1,4 @@
+import { ProxyWebServer } from './structural/proxy/ProxyWebServer';
 import { Cash } from './structural/composite/comp/Cash';
 import { VideoAdapter } from './structural/adapter/VideoAdapter';
 import { Book } from './creational/prototype/Book';
@@ -199,8 +200,18 @@ export const CompositeExm = () => {
 };
 
 // proxy
-export const ProxyEmx = () => {
+export const ProxyExm = () => {
   console.log('-------- start proxy --------');
+  const ws = new ProxyWebServer();
+
+  console.log(`------ 1 ------`);
+  console.log(ws.getPage('https://www.example.com/page1'));
+  console.log(`\n------ 2 ------`);
+  console.log(ws.getPage('https://www.example.com/page1'));
+  console.log(`\n------ 3 ------`);
+  console.log(ws.getPage('https://www.example.com/page2'));
+  console.log(`\n------ 4 ------`);
+  console.log(ws.getPage('https://www.example.com/page2'));
 
   console.log('--------- end proxy ---------');
 };
