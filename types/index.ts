@@ -87,3 +87,8 @@ export interface IFinancialComponent {
 export interface IWebPage {
   getPage(url: string): string;
 }
+
+// Interfaces and enums for flzweight
+export interface ILaptopComp {
+  use(): void;
+}

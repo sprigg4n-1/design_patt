@@ -23,6 +23,7 @@ import { DisplayPort } from './structural/adapter/DisplayPort';
 import { HDMI } from './structural/adapter/HDMI';
 import { Stock } from './structural/composite/comp/Stock';
 import { FinancialPortfolio } from './structural/composite/FinancialPortfolio';
+import { LaptopFactory } from './structural/flyweight/LaptopFactory';
 
 // singleton
 export const SingletonExamp = () => {
@@ -214,4 +215,22 @@ export const ProxyExm = () => {
   console.log(ws.getPage('https://www.example.com/page2'));
 
   console.log('--------- end proxy ---------');
+};
+
+// proxy
+export const FlyweightExm = () => {
+  console.log('-------- start flyweight --------');
+  const lf = new LaptopFactory();
+
+  console.log('------- 1 ---------');
+  lf.createLaptop('Lenovo', 'ThinkPad', 'Intel Core i7', 16, 1024);
+  lf.showLaptops();
+  console.log('------- 2---------');
+  lf.createLaptop('HP', 'Pavilion', 'Intel Core i5', 8, 512);
+  lf.showLaptops();
+  console.log('------- 3 ---------');
+  lf.createLaptop('HP', 'Pavilion', 'Intel Core i5', 8, 512);
+  lf.showLaptops();
+
+  console.log('--------- end flyweight ---------');
 };

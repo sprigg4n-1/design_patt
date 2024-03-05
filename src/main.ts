@@ -7,8 +7,10 @@ import {
   AdapterExm,
   CompositeExm,
   ProxyExm,
+  FlyweightExm,
 } from './patterns/patterns';
 
+// ============= creational ============= //
 // SingletonExamp();
 
 // FactoryExm();
@@ -19,8 +21,11 @@ import {
 
 // PrototypeExm();
 
+// ============= structural ============= //
 // AdapterExm();
 
 // CompositeExm();
 
-ProxyExm();
+// ProxyExm();
+
+FlyweightExm();
