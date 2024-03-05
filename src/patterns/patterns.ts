@@ -1,3 +1,4 @@
+import { Cash } from './structural/composite/comp/Cash';
 import { VideoAdapter } from './structural/adapter/VideoAdapter';
 import { Book } from './creational/prototype/Book';
 import { CompanyFactory } from './creational/abs-factory/CompanyFactory';
@@ -17,9 +18,10 @@ import HotelKey from './creational/singleton/HotelKey';
 import { ComputerBuilder } from './creational/builder/ComputerBuilder';
 
 import { PCConfiguration } from '../../constants/index';
-import { Computer } from './creational/builder/Computer';
 import { DisplayPort } from './structural/adapter/DisplayPort';
 import { HDMI } from './structural/adapter/HDMI';
+import { Stock } from './structural/composite/comp/Stock';
+import { FinancialPortfolio } from './structural/composite/FinancialPortfolio';
 
 // singleton
 export const SingletonExamp = () => {
@@ -172,4 +174,33 @@ export const AdapterExm = () => {
   const adapter = new VideoAdapter(hd);
   clientCode(adapter);
   console.log('--------- end adapter ---------');
+};
+
+// composite
+
+export const CompositeExm = () => {
+  console.log('-------- start composite --------');
+  const fp = new FinancialPortfolio('Composite');
+
+  const c1 = new Cash('USD', 100);
+  const s1 = new Stock('AAPL', 100, 150);
+  const c2 = new Cash('EUR', 150);
+  const s2 = new Stock('SPL', 140, 120);
+
+  fp.addComponent(c1);
+  fp.addComponent(s1);
+  fp.addComponent(c2);
+  fp.addComponent(s2);
+
+  console.log(fp.calculateValue());
+  console.log(fp.getInfo());
+
+  console.log('--------- end composite ---------');
+};
+
+// proxy
+export const ProxyEmx = () => {
+  console.log('-------- start proxy --------');
+
+  console.log('--------- end proxy ---------');
 };

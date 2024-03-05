@@ -76,3 +76,9 @@ export interface ICompanyFactory {
 export interface IPrototype<T> {
   doCopy(): T;
 }
+
+// Interfaces and enums for composite
+export interface IFinancialComponent {
+  calculateValue(): number;
+  getInfo(): string;
+}

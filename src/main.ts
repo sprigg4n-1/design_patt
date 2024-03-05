@@ -5,6 +5,7 @@ import {
   BuilderExm,
   PrototypeExm,
   AdapterExm,
+  CompositeExm,
 } from './patterns/patterns';
 
 // SingletonExamp();
@@ -17,4 +18,6 @@ import {
 
 // PrototypeExm();
 
-AdapterExm();
+// AdapterExm();
+
+CompositeExm();
