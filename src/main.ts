@@ -13,6 +13,7 @@ import {
   DecoratorExm,
   ChainExm,
   CommandExp,
+  IteratorExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -44,4 +45,6 @@ import {
 // ============= behavioral ============= //
 // ChainExm();
 
-CommandExp();
+// CommandExp();
+
+// IteratorExp();

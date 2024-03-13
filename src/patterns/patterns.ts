@@ -43,6 +43,7 @@ import { ProductFacade } from './structural/facade/ProductFacade';
 import { MongoDBManager } from './structural/bridge/MongoDBManager';
 import { MySQLManager } from './structural/bridge/MySQLManager';
 import { Divide } from './behavioral/command_p/Divide';
+import { Pages } from './behavioral/iterator/Pages';
 
 // singleton
 export const SingletonExamp = () => {
@@ -354,4 +355,43 @@ export const CommandExp = () => {
   console.log(calc.compute(new Divide(3, 0)));
 
   console.log('--------- end command ---------');
+};
+
+// command
+export const IteratorExp = () => {
+  console.log('-------- start iterator --------');
+  const pagesData = [
+    { title: 'First Item', subtitle: 'Description of First item', rate: 9.4 },
+    { title: 'Second Item', subtitle: 'Description of Second item', rate: 8.6 },
+    { title: 'Third Item', subtitle: 'Description of Third item', rate: 8.1 },
+    { title: 'Fourth Item', subtitle: 'Description of Fourth item', rate: 8 },
+    { title: 'Fifth Item', subtitle: 'Description of Fifth item', rate: 7.7 },
+    { title: 'Sixth Item', subtitle: 'Description of Sixth item', rate: 7.4 },
+    {
+      title: 'Seventh Item',
+      subtitle: 'Description of Seventh item',
+      rate: 7.3,
+    },
+    { title: 'Eights Item', subtitle: 'Description of Eights item', rate: 7.3 },
+    { title: 'Nineth Item', subtitle: 'Description of Nineth item', rate: 7.2 },
+    { title: 'Tenth Item', subtitle: 'Description of Tenth item', rate: 7.1 },
+  ];
+
+  const pages = new Pages(pagesData);
+  const it = pages.createIterator();
+
+  let currPage = 1;
+  const pageSize = 3;
+
+  while (it.hasNext()) {
+    console.log(`Page ${currPage}`);
+    for (let i = 0; i < pageSize && it.hasNext(); i++) {
+      console.log(it.next());
+    }
+
+    console.log(`==============`);
+    currPage++;
+  }
+
+  console.log('--------- end iterator ---------');
 };

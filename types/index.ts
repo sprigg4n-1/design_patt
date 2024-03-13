@@ -124,3 +124,15 @@ export enum EUserRequest {
 export interface ICommandCalc {
   execute(): number;
 }
+
+// Interfaces and enums for iterator
+export interface Iterator<T> {
+  hasNext(): boolean;
+  next(): T;
+}
+
+export interface IPageItem {
+  title: string;
+  subtitle: string;
+  rate: number;
+}
