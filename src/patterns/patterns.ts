@@ -1,3 +1,7 @@
+import { Substruct } from './behavioral/command_p/Subtract';
+import { Multiply } from './behavioral/command_p/Multiply';
+import { Add } from './behavioral/command_p/Add';
+import { Calculator } from './behavioral/command_p/Calculatro';
 import { EditTask } from './behavioral/chainOfResponsibility/EditTask';
 import { CreateTask } from './behavioral/chainOfResponsibility/CreateTask';
 import { ShowTask } from './behavioral/chainOfResponsibility/ShowTask';
@@ -38,6 +42,7 @@ import { LaptopFactory } from './structural/flyweight/LaptopFactory';
 import { ProductFacade } from './structural/facade/ProductFacade';
 import { MongoDBManager } from './structural/bridge/MongoDBManager';
 import { MySQLManager } from './structural/bridge/MySQLManager';
+import { Divide } from './behavioral/command_p/Divide';
 
 // singleton
 export const SingletonExamp = () => {
@@ -326,4 +331,27 @@ export const ChainExm = () => {
   console.log(createTask.handleRequest(EUserRequest.show_task));
 
   console.log('--------- end chain of responsibility ---------');
+};
+
+// command
+export const CommandExp = () => {
+  console.log('-------- start command --------');
+  const calc = new Calculator();
+
+  console.log(`==== 1 (1 + 2)`);
+  console.log(calc.compute(new Add(1, 2)));
+
+  console.log(`==== 2 (3 / 2)`);
+  console.log(calc.compute(new Divide(3, 2)));
+
+  console.log(`==== 3 (5 * 2)`);
+  console.log(calc.compute(new Multiply(5, 2)));
+
+  console.log(`==== 4 (6 - 2)`);
+  console.log(calc.compute(new Substruct(6, 2)));
+
+  console.log(`==== 5 (3 / 0)`);
+  console.log(calc.compute(new Divide(3, 0)));
+
+  console.log('--------- end command ---------');
 };

@@ -119,3 +119,8 @@ export enum EUserRequest {
   delete_task = 'delete_task',
   show_task = 'show_task',
 }
+
+// Interfaces and enums for command p
+export interface ICommandCalc {
+  execute(): number;
+}
