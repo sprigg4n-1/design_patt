@@ -11,6 +11,7 @@ import {
   FacadeExm,
   BridgeExm,
   DecoratorExm,
+  ChainExm,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -37,4 +38,7 @@ import {
 
 // BridgeExm();
 
-DecoratorExm();
+// DecoratorExm();
+
+// ============= behavioral ============= //
+ChainExm();

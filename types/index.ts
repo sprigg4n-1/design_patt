@@ -111,3 +111,11 @@ export interface IDatabase {
 export interface IBaseTrink {
   printInfo(): string;
 }
+
+// Interfaces and enums for chain
+export enum EUserRequest {
+  create_task = 'create_task',
+  change_task = 'change_task',
+  delete_task = 'delete_task',
+  show_task = 'show_task',
+}

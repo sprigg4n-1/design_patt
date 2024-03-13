@@ -1,3 +1,7 @@
+import { EditTask } from './behavioral/chainOfResponsibility/EditTask';
+import { CreateTask } from './behavioral/chainOfResponsibility/CreateTask';
+import { ShowTask } from './behavioral/chainOfResponsibility/ShowTask';
+import { DeleteTask } from './behavioral/chainOfResponsibility/DeleteTask';
 import { SyrupDec } from './structural/decorator_p/SyrupDec';
 import { SugarDec } from './structural/decorator_p/SugarDec';
 import { MilkDec } from './structural/decorator_p/MilkDec';
@@ -18,7 +22,7 @@ import {
   EMenu,
   IMonitor,
   IMotherboard,
-  IProduct,
+  EUserRequest,
 } from '../../types';
 import Order from './creational/factory/Order';
 import OrderFactory from './creational/factory/OrderFactory';
@@ -189,7 +193,6 @@ export const AdapterExm = () => {
 };
 
 // composite
-
 export const CompositeExm = () => {
   console.log('-------- start composite --------');
   const fp = new FinancialPortfolio('Composite');
@@ -298,4 +301,29 @@ export const DecoratorExm = () => {
   console.log(coffeeSyrup.printInfo());
 
   console.log('--------- end decorator ---------');
+};
+
+// chain of responsibility
+export const ChainExm = () => {
+  console.log('-------- start chain of responsibility --------');
+
+  const deleteTask = new DeleteTask();
+  const showTask = new ShowTask();
+  const createTask = new CreateTask();
+  const editTask = new EditTask();
+
+  createTask.setSuccessor(deleteTask);
+  deleteTask.setSuccessor(editTask);
+  // editTask.setSuccessor(showTask);
+
+  console.log('==== 1');
+  console.log(createTask.handleRequest(EUserRequest.create_task));
+  console.log('==== 2');
+  console.log(createTask.handleRequest(EUserRequest.change_task));
+  console.log('==== 3');
+  console.log(createTask.handleRequest(EUserRequest.delete_task));
+  console.log('==== 4');
+  console.log(createTask.handleRequest(EUserRequest.show_task));
+
+  console.log('--------- end chain of responsibility ---------');
 };
