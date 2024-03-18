@@ -18,6 +18,7 @@ import {
   MementoExp,
   ObserverExp,
   StateExp,
+  StrategyExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -59,4 +60,6 @@ import {
 
 // ObserverExp();
 
-StateExp();
+// StateExp();
+
+// StrategyExp();

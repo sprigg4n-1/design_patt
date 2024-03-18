@@ -157,3 +157,8 @@ export interface IProcessState {
   resume(context: ProcessContext): void;
   stop(context: ProcessContext): void;
 }
+
+// Interfaces and enums for strategy
+export interface IAuthStrategy {
+  auth(data: Object): boolean;
+}

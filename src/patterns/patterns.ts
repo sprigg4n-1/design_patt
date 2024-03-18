@@ -56,6 +56,9 @@ import { ShoppingCartHistory } from './behavioral/memento/ShoppingCartHistory';
 import { NotificationService } from './behavioral/observer/NotificationService';
 import { Email } from './behavioral/observer/Email';
 import { SMS } from './behavioral/observer/SMS';
+import { AuthStrat } from './behavioral/strategy/AuthStrat';
+import { UsernamePasswordAuth } from './behavioral/strategy/UsernamePasswordAuth';
+import { TokenAuth } from './behavioral/strategy/TokenAuth';
 
 // singleton
 export const SingletonExamp = () => {
@@ -485,4 +488,28 @@ export const StateExp = () => {
   prc.stopProcess();
 
   console.log('--------- end state ---------');
+};
+
+// strategy
+export const StrategyExp = () => {
+  console.log('-------- start strategy --------');
+
+  const auth = new AuthStrat(new UsernamePasswordAuth());
+
+  console.log(`check correct pass and username -------`);
+  console.log(auth.auth({ username: 'admin', password: '123456' }));
+  console.log(`check incorrect -------`);
+  console.log(auth.auth({ username: 'admin', password: '1232456' }));
+  console.log(`check incorrect -------`);
+  console.log(auth.auth({ username: 'admina', password: '123456' }));
+
+  console.log(`change strategy =========`);
+  auth.setStrategy(new TokenAuth());
+
+  console.log(`check correct token -------`);
+  console.log(auth.auth({ token: 'token_123_123_aaa' }));
+  console.log(`check incorrect token -------`);
+  console.log(auth.auth({ token: 'token_123_2123_aaa' }));
+
+  console.log('--------- end strategy ---------');
 };
