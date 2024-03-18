@@ -44,6 +44,10 @@ import { MongoDBManager } from './structural/bridge/MongoDBManager';
 import { MySQLManager } from './structural/bridge/MySQLManager';
 import { Divide } from './behavioral/command_p/Divide';
 import { Pages } from './behavioral/iterator/Pages';
+import { Auth } from './behavioral/mediator/Auth';
+import { UsernameInput } from './behavioral/mediator/UsernameInput';
+import { LoginBtn } from './behavioral/mediator/LoginBtn';
+import { PasswordInput } from './behavioral/mediator/PasswordInput';
 
 // singleton
 export const SingletonExamp = () => {
@@ -357,7 +361,7 @@ export const CommandExp = () => {
   console.log('--------- end command ---------');
 };
 
-// command
+// iterator
 export const IteratorExp = () => {
   console.log('-------- start iterator --------');
   const pagesData = [
@@ -394,4 +398,19 @@ export const IteratorExp = () => {
   }
 
   console.log('--------- end iterator ---------');
+};
+
+// mediator
+export const MediatorExp = () => {
+  console.log('-------- start mediator --------');
+  const authForm = new Auth();
+  const usernameInput = new UsernameInput(authForm);
+  const passwordInput = new PasswordInput(authForm);
+  const loginBtn = new LoginBtn(authForm);
+
+  usernameInput.inputChanged();
+  passwordInput.inputChanged();
+  loginBtn.click('username', 'password');
+
+  console.log('--------- end mediator ---------');
 };

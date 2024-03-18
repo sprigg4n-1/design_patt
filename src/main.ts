@@ -14,6 +14,7 @@ import {
   ChainExm,
   CommandExp,
   IteratorExp,
+  MediatorExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -48,3 +49,5 @@ import {
 // CommandExp();
 
 // IteratorExp();
+
+MediatorExp();

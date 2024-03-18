@@ -1,3 +1,5 @@
+import { MedUser } from '../src/patterns/behavioral/mediator/MedUser';
+
 // Interfaces and enums for factory
 export enum EMenu {
   Breakfast = 'Breakfast',
@@ -135,4 +137,9 @@ export interface IPageItem {
   title: string;
   subtitle: string;
   rate: number;
+}
+
+// Interfaces and enums for mediator
+export interface IMediator {
+  notify(sender: MedUser, event: string, data: any): void;
 }
