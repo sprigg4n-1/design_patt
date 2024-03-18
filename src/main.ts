@@ -20,6 +20,7 @@ import {
   StateExp,
   StrategyExp,
   TemplateExp,
+  VisitorExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -65,4 +66,6 @@ import {
 
 // StrategyExp();
 
-TemplateExp();
+// TemplateExp();
+
+VisitorExp();

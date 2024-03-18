@@ -61,6 +61,9 @@ import { UsernamePasswordAuth } from './behavioral/strategy/UsernamePasswordAuth
 import { TokenAuth } from './behavioral/strategy/TokenAuth';
 import { MySQLConnection } from './behavioral/template_p/MySQLConnection ';
 import { PostgreSQLConnection } from './behavioral/template_p/PostgreSQLConnection';
+import { Electronics } from './behavioral/visitor/Electronics';
+import { Books } from './behavioral/visitor/Books';
+import { ShippingCostCalculator } from './behavioral/visitor/ShippingCostCalculator';
 
 // singleton
 export const SingletonExamp = () => {
@@ -533,4 +536,26 @@ export const TemplateExp = () => {
   console.log(`MySQL result: ${postgreReq}`);
 
   console.log('--------- end template ---------');
+};
+
+// visitor
+export const VisitorExp = () => {
+  console.log('-------- start visitor --------');
+
+  const els = new Electronics('Smartphone');
+  const bks = new Books('Green Mile');
+
+  const scc = new ShippingCostCalculator();
+
+  console.log(`============== elecronics`);
+
+  const sccels = els.accept(scc);
+  console.log(`Shipping elecronics: ${sccels}`);
+
+  console.log(`============== books`);
+
+  const sccbks = bks.accept(scc);
+  console.log(`Shipping books: ${sccbks}`);
+
+  console.log('--------- end visitor ---------');
 };

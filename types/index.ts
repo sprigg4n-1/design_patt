@@ -1,5 +1,7 @@
 import { MedUser } from '../src/patterns/behavioral/mediator/MedUser';
 import { ProcessContext } from '../src/patterns/behavioral/state/ProcessContext';
+import { Books } from '../src/patterns/behavioral/visitor/Books';
+import { Electronics } from '../src/patterns/behavioral/visitor/Electronics';
 
 // Interfaces and enums for factory
 export enum EMenu {
@@ -161,4 +163,10 @@ export interface IProcessState {
 // Interfaces and enums for strategy
 export interface IAuthStrategy {
   auth(data: Object): boolean;
+}
+
+// Interfaces and enums for visitor
+export interface IShippingCostVisitor {
+  visitElectronics(electronics: Electronics): number;
+  visitBooks(books: Books): number;
 }
