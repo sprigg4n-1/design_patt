@@ -17,6 +17,7 @@ import {
   MediatorExp,
   MementoExp,
   ObserverExp,
+  StateExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -56,4 +57,6 @@ import {
 
 // MementoExp();
 
-ObserverExp();
+// ObserverExp();
+
+StateExp();

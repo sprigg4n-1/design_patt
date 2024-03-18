@@ -1,3 +1,6 @@
+import { Pause } from './behavioral/state/Pause';
+import { Running } from './behavioral/state/Running';
+import { ProcessContext } from './behavioral/state/ProcessContext';
 import { Substruct } from './behavioral/command_p/Subtract';
 import { Multiply } from './behavioral/command_p/Multiply';
 import { Add } from './behavioral/command_p/Add';
@@ -457,8 +460,6 @@ export const ObserverExp = () => {
   const ns = new NotificationService();
 
   const en = new Email();
-  const en1 = new Email();
-  const en2 = new Email();
   const smsn = new SMS();
 
   ns.addObesrver(en);
@@ -467,4 +468,25 @@ export const ObserverExp = () => {
   ns.sendNotification('Wichtige Mitteilung');
 
   console.log('--------- end observer ---------');
+};
+
+// state
+export const StateExp = () => {
+  console.log('-------- start state --------');
+  const prc = new ProcessContext(new Running());
+
+  prc.startProcess();
+  prc.pauseProcess();
+  prc.resumeProcess();
+  prc.stopProcess();
+
+  console.log(`====== other process ======`);
+  const prc2 = new ProcessContext(new Pause());
+
+  prc2.startProcess();
+  prc2.pauseProcess();
+  prc2.resumeProcess();
+  prc2.stopProcess();
+
+  console.log('--------- end state ---------');
 };

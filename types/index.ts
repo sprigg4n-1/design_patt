@@ -148,3 +148,11 @@ export interface IMediator {
 export interface IObserver {
   notify(message: string): void;
 }
+
+// Interfaces and enums for state
+export interface IProcessState {
+  start(): void;
+  pause(): void;
+  resume(): void;
+  stop(): void;
+}
