@@ -1,4 +1,5 @@
 import { MedUser } from '../src/patterns/behavioral/mediator/MedUser';
+import { ProcessContext } from '../src/patterns/behavioral/state/ProcessContext';
 
 // Interfaces and enums for factory
 export enum EMenu {
@@ -151,8 +152,8 @@ export interface IObserver {
 
 // Interfaces and enums for state
 export interface IProcessState {
-  start(): void;
-  pause(): void;
-  resume(): void;
-  stop(): void;
+  start(context: ProcessContext): void;
+  pause(context: ProcessContext): void;
+  resume(context: ProcessContext): void;
+  stop(context: ProcessContext): void;
 }

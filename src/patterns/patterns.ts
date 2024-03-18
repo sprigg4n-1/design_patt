@@ -475,18 +475,14 @@ export const StateExp = () => {
   console.log('-------- start state --------');
   const prc = new ProcessContext(new Running());
 
+  console.log(`1 --------`);
   prc.startProcess();
+  console.log(`2 --------`);
   prc.pauseProcess();
+  console.log(`3 --------`);
   prc.resumeProcess();
+  console.log(`4 --------`);
   prc.stopProcess();
-
-  console.log(`====== other process ======`);
-  const prc2 = new ProcessContext(new Pause());
-
-  prc2.startProcess();
-  prc2.pauseProcess();
-  prc2.resumeProcess();
-  prc2.stopProcess();
 
   console.log('--------- end state ---------');
 };

@@ -12,18 +12,18 @@ export class ProcessContext {
   }
 
   startProcess(): void {
-    this.state.start();
+    this.state.start(this);
   }
 
   pauseProcess(): void {
-    this.state.pause();
+    this.state.pause(this);
   }
 
   resumeProcess(): void {
-    this.state.resume();
+    this.state.resume(this);
   }
 
   stopProcess(): void {
-    this.state.stop();
+    this.state.stop(this);
   }
 }

@@ -1,16 +1,21 @@
 import { IProcessState } from '../../../../types';
+import { Pause } from './Pause';
+import { ProcessContext } from './ProcessContext';
+import { Stop } from './Stop';
 
 export class Running implements IProcessState {
-  start(): void {
-    console.log(`The process is already started`);
+  start(context: ProcessContext): void {
+    console.log(`Процес вже виконується`);
   }
-  pause(): void {
-    console.log(`Process pause`);
+  pause(context: ProcessContext): void {
+    console.log(`Пауза у виконанні процесу...`);
+    context.setState(new Pause());
   }
-  resume(): void {
-    console.log(`Resuming process`);
+  resume(context: ProcessContext): void {
+    console.log(`Продовження виконання процесу...`);
   }
-  stop(): void {
-    console.log(`Stop the process`);
+  stop(context: ProcessContext): void {
+    console.log(`Зупинка процесу...`);
+    context.setState(new Stop());
   }
 }
