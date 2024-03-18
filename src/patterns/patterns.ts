@@ -48,6 +48,8 @@ import { Auth } from './behavioral/mediator/Auth';
 import { UsernameInput } from './behavioral/mediator/UsernameInput';
 import { LoginBtn } from './behavioral/mediator/LoginBtn';
 import { PasswordInput } from './behavioral/mediator/PasswordInput';
+import { ShoppingCart } from './behavioral/memento/ShoppingCart';
+import { ShoppingCartHistory } from './behavioral/memento/ShoppingCartHistory';
 
 // singleton
 export const SingletonExamp = () => {
@@ -413,4 +415,35 @@ export const MediatorExp = () => {
   loginBtn.click('username', 'password');
 
   console.log('--------- end mediator ---------');
+};
+
+// memento
+export const MementoExp = () => {
+  console.log('-------- start memento --------');
+  const shoppingCart = new ShoppingCart();
+  const history = new ShoppingCartHistory();
+
+  shoppingCart.addItem('Item 1');
+  shoppingCart.addItem('Item 2');
+  shoppingCart.addItem('Item 3');
+  shoppingCart.addItem('Item 4');
+  shoppingCart.showItems();
+
+  history.push(shoppingCart.save());
+
+  console.log(`after remove`);
+  shoppingCart.removeItem('Item 2');
+  shoppingCart.showItems();
+
+  const prevState = history.pop();
+
+  console.log(`after restore`);
+  if (prevState) {
+    shoppingCart.restore(prevState);
+    shoppingCart.showItems();
+  } else {
+    console.log('No previous state available.');
+  }
+
+  console.log('--------- end memento ---------');
 };
