@@ -16,6 +16,7 @@ import {
   IteratorExp,
   MediatorExp,
   MementoExp,
+  ObserverExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -53,4 +54,6 @@ import {
 
 // MediatorExp();
 
-MementoExp();
+// MementoExp();
+
+ObserverExp();

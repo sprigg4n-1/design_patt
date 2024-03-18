@@ -143,3 +143,8 @@ export interface IPageItem {
 export interface IMediator {
   notify(sender: MedUser, event: string, data: any): void;
 }
+
+// Interfaces and enums for observer
+export interface IObserver {
+  notify(message: string): void;
+}

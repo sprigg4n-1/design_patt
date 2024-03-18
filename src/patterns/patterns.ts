@@ -50,6 +50,9 @@ import { LoginBtn } from './behavioral/mediator/LoginBtn';
 import { PasswordInput } from './behavioral/mediator/PasswordInput';
 import { ShoppingCart } from './behavioral/memento/ShoppingCart';
 import { ShoppingCartHistory } from './behavioral/memento/ShoppingCartHistory';
+import { NotificationService } from './behavioral/observer/NotificationService';
+import { Email } from './behavioral/observer/Email';
+import { SMS } from './behavioral/observer/SMS';
 
 // singleton
 export const SingletonExamp = () => {
@@ -446,4 +449,22 @@ export const MementoExp = () => {
   }
 
   console.log('--------- end memento ---------');
+};
+
+// observer
+export const ObserverExp = () => {
+  console.log('-------- start observer --------');
+  const ns = new NotificationService();
+
+  const en = new Email();
+  const en1 = new Email();
+  const en2 = new Email();
+  const smsn = new SMS();
+
+  ns.addObesrver(en);
+  ns.addObesrver(smsn);
+
+  ns.sendNotification('Wichtige Mitteilung');
+
+  console.log('--------- end observer ---------');
 };
