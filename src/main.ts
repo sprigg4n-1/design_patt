@@ -19,6 +19,7 @@ import {
   ObserverExp,
   StateExp,
   StrategyExp,
+  TemplateExp,
 } from './patterns/patterns';
 
 // ============= creational ============= //
@@ -63,3 +64,5 @@ import {
 // StateExp();
 
 // StrategyExp();
+
+TemplateExp();

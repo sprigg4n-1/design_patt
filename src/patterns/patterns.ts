@@ -59,6 +59,8 @@ import { SMS } from './behavioral/observer/SMS';
 import { AuthStrat } from './behavioral/strategy/AuthStrat';
 import { UsernamePasswordAuth } from './behavioral/strategy/UsernamePasswordAuth';
 import { TokenAuth } from './behavioral/strategy/TokenAuth';
+import { MySQLConnection } from './behavioral/template_p/MySQLConnection ';
+import { PostgreSQLConnection } from './behavioral/template_p/PostgreSQLConnection';
 
 // singleton
 export const SingletonExamp = () => {
@@ -512,4 +514,23 @@ export const StrategyExp = () => {
   console.log(auth.auth({ token: 'token_123_2123_aaa' }));
 
   console.log('--------- end strategy ---------');
+};
+
+// template
+export const TemplateExp = () => {
+  console.log('-------- start template --------');
+
+  const mysqlConn = new MySQLConnection();
+
+  console.log(`my sql ==============`);
+  const mysqlReq = mysqlConn.execute('select * from users');
+  console.log(`MySQL result: ${mysqlReq}`);
+
+  const postgreConn = new PostgreSQLConnection();
+
+  console.log(`postgre sql ==============`);
+  const postgreReq = postgreConn.execute('select * from users');
+  console.log(`MySQL result: ${postgreReq}`);
+
+  console.log('--------- end template ---------');
 };
