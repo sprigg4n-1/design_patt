@@ -24,48 +24,48 @@ import {
 } from './patterns/patterns';
 
 // ============= creational ============= //
-// SingletonExamp();
+SingletonExamp();
 
-// FactoryExm();
+FactoryExm();
 
-// AbsFactoryExm();
+AbsFactoryExm();
 
-// BuilderExm();
+BuilderExm();
 
-// PrototypeExm();
+PrototypeExm();
 
 // ============= structural ============= //
-// AdapterExm();
+AdapterExm();
 
-// CompositeExm();
+CompositeExm();
 
-// ProxyExm();
+ProxyExm();
 
-// FlyweightExm();
+FlyweightExm();
 
-// FacadeExm();
+FacadeExm();
 
-// BridgeExm();
+BridgeExm();
 
-// DecoratorExm();
+DecoratorExm();
 
 // ============= behavioral ============= //
-// ChainExm();
+ChainExm();
 
-// CommandExp();
+CommandExp();
 
-// IteratorExp();
+IteratorExp();
 
-// MediatorExp();
+MediatorExp();
 
-// MementoExp();
+MementoExp();
 
-// ObserverExp();
+ObserverExp();
 
-// StateExp();
+StateExp();
 
-// StrategyExp();
+StrategyExp();
 
-// TemplateExp();
+TemplateExp();
 
 VisitorExp();
